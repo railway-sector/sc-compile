@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksc_compile=self.webpackChunksc_compile||[]).push([[82818],{82818:(e,s,c)=>{c.d(s,{PieChartAm5:()=>i.r,PieSeriesAm5:()=>p.w});var i=c(28704),p=c(15457)}}]);
