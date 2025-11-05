@@ -405,11 +405,12 @@ const ViaductChart = () => {
       <div
         id={chartID}
         style={{
-          width: chart_width,
           height: "64vh",
+          width: "26vw",
           backgroundColor: "rgb(0,0,0,0)",
           color: "white",
           marginRight: "10px",
+          marginLeft: "20px",
           marginTop: "40px",
         }}
       ></div>

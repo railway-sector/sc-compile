@@ -370,8 +370,7 @@ const NloChart = memo(() => {
       <div
         id={chartID}
         style={{
-          width: chart_width,
-          height: "50vh",
+          height: "55vh",
           backgroundColor: "rgb(0,0,0,0)",
           color: "white",
           marginTop: "40px",
