@@ -198,6 +198,121 @@ export const meralco_site1_prowLayer = new FeatureLayer({
   renderer: prowRenderer,
 });
 
+/* Temporary Fencing */
+var temporaryFencingRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#FFEBBE",
+    width: "2px",
+  }),
+});
+
+export const temporaryFencingLayer = new FeatureLayer({
+  portalItem: {
+    id: "e37f3dab086c4063ba28c7e4d4075d60",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 1,
+  title: "Temporary Fencing",
+  renderer: temporaryFencingRenderer,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Permanent Fencing */
+var permanentFencingRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#FFA77F",
+    width: "2px",
+  }),
+});
+
+export const permanentFencingLayer = new FeatureLayer({
+  portalItem: {
+    id: "e37f3dab086c4063ba28c7e4d4075d60",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 2,
+  title: "Permanent Fencing",
+  renderer: permanentFencingRenderer,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Maintenance Road */
+var maintenanceRoadRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#98E600",
+    width: "2px",
+  }),
+});
+
+export const maintenanceRoadLayer = new FeatureLayer({
+  portalItem: {
+    id: "e37f3dab086c4063ba28c7e4d4075d60",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 3,
+  title: "Maintenance Road",
+  renderer: maintenanceRoadRenderer,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Drainage */
+var drainageRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#0070FF",
+    width: "2px",
+  }),
+});
+
+export const drainageLayer = new FeatureLayer({
+  portalItem: {
+    id: "e37f3dab086c4063ba28c7e4d4075d60",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 4,
+  title: "Drainage",
+  renderer: drainageRenderer,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Future Track */
+var futureTrackRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#C500FF",
+    width: "2px",
+  }),
+});
+
+export const futureTrackLayer = new FeatureLayer({
+  portalItem: {
+    id: "e37f3dab086c4063ba28c7e4d4075d60",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 5,
+  title: "Provision for Freight Line",
+  renderer: futureTrackRenderer,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
 /*------- NGCP Layers ---------- */
 /* NGCP Working Area */
 const ngcpPoleWARenderer = new SimpleRenderer({
@@ -2394,6 +2509,11 @@ export const alignmentGroupLayer = new GroupLayer({
     cp_break_lines,
     meralco_site1_prowLayer,
     prowLayer,
+    temporaryFencingLayer,
+    permanentFencingLayer,
+    maintenanceRoadLayer,
+    drainageLayer,
+    futureTrackLayer,
   ],
 });
 
