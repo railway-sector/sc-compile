@@ -293,7 +293,7 @@ export const drainageLayer = new FeatureLayer({
 /* Future Track */
 var futureTrackRenderer = new SimpleRenderer({
   symbol: new SimpleLineSymbol({
-    color: "#C500FF",
+    color: "#00FFC5",
     width: "2px",
   }),
 });
