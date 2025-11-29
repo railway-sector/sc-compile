@@ -557,7 +557,7 @@ export const pnrLayer = new FeatureLayer({
   labelsVisible: false,
   renderer: pnrRenderer,
   popupTemplate: {
-    title: "<p>{LandOwner} ({LotID})</p>",
+    title: "<div style='color: #eaeaea'>{LandOwner} ({LotID})</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -721,7 +721,9 @@ let customContentLot = new CustomContent({
     //var date = dateFormat(daten, 'MM-dd-yyyy');
     //<li>Hand-Over Date: <b>${date}</b></li><br>
 
-    return `<ul><li>Handed-Over Area: <b>${handOverArea} %</b></li>
+    return `
+    <div style='color: #eaeaea'>
+    <ul><li>Handed-Over Area: <b>${handOverArea} %</b></li>
       <li>Handed-Over Date: <b>${date}</b></li>
                 <li>Status:           <b>${
                   statusLot >= 0 ? lotStatusLabel[statusLot - 1] : ""
@@ -733,12 +735,14 @@ let customContentLot = new CustomContent({
                 <li>Barangay:         <b>${barangay}</b></li>
                 <li>Land Owner:       <b>${landOwner}</b>
                 <li>CP:               <b>${cpNo}</b>
-                <li>Endorsed:         <b>${endorsed}</b></li></ul>`;
+                <li>Endorsed:         <b>${endorsed}</b></li></ul>
+    </div>
+                `;
   },
 });
 
 const templateLot = new PopupTemplate({
-  title: "Lot No.: <b>{LotID}</b>",
+  title: "<div style='color: #eaeaea'>Lot No.: <b>{LotID}</b></div>",
   lastEditInfoEnabled: false,
   content: [customContentLot],
 });
@@ -865,7 +869,7 @@ export const structureLayer = new FeatureLayer({
     mode: "on-the-ground",
   },
   popupTemplate: {
-    title: "<p>{StrucID}</p>",
+    title: "<div style='color: #eaeaea'>{StrucID}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -943,7 +947,7 @@ export const nloLayer = new FeatureLayer({
   minScale: 10000,
   maxScale: 0,
   popupTemplate: {
-    title: "<p>{StrucID}</p>",
+    title: "<div style='color: #eaeaea'>{StrucID}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -1077,7 +1081,7 @@ export const occupancyLayer = new FeatureLayer({
     mode: "relative-to-scene",
   },
   popupTemplate: {
-    title: "<p>{StrucID}</p>",
+    title: "<div style='color: #eaeaea'>{StrucID}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -1496,14 +1500,17 @@ let customContent = new CustomContent({
     }
 
     //return `Access Date: <b>${DATES}</b>`;
-    return `Access Date: <b>${dateValue}</b><br>
-            Status: <b>${DATES}</b> 
+    return `
+    <div style='color: #eaeaea'>
+    Access Date: <b>${dateValue}</b><br>
+            Status: <b>${DATES}</b>
+    </div>
     `;
   },
 });
 
 const template = new PopupTemplate({
-  title: "Pier No: <b>{PIER}</b>",
+  title: "<div style='color: #eaeaea'>Pier No: <b>{PIER}</b></div>",
   lastEditInfoEnabled: false,
   content: [customContent],
 });
@@ -1682,7 +1689,7 @@ export const treeCompensationLayer = new FeatureLayer({
   title: "Tree Compensation",
   renderer: treeCompensationRenderer,
   popupTemplate: {
-    title: "<h5>{Compensation}</h5>",
+    title: "<div style='color: #eaeaea'>{Compensation}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -1908,7 +1915,7 @@ export const utilityPointLayer = new FeatureLayer({
     //offset: 0
   },
   popupTemplate: {
-    title: "<h5>{comp_agency}</h5>",
+    title: "<div style='color: #eaeaea'>{comp_agency}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -2061,7 +2068,7 @@ export const utilityPointLayer1 = new FeatureLayer({
   },
   labelingInfo: [utilPointStatusLabel],
   popupTemplate: {
-    title: "<h5>{comp_agency}</h5>",
+    title: "<div style='color: #eaeaea'>{comp_agency}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -2197,7 +2204,7 @@ export const utilityLineLayer = new FeatureLayer({
   },
   // outFields: ['*'],
   popupTemplate: {
-    title: "<h5>{comp_agency}</h5>",
+    title: "<div style='color: #eaeaea'>{comp_agency}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -2337,7 +2344,7 @@ export const utilityLineLayer1 = new FeatureLayer({
   renderer: utilLineStatusRenderer,
   labelingInfo: [utilityLineLabelClass],
   popupTemplate: {
-    title: "<h5>{comp_agency}</h5>",
+    title: "<div style='color: #eaeaea'>{comp_agency}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
@@ -2437,7 +2444,7 @@ export const viaductLayer = new SceneLayer({
   labelsVisible: false,
   renderer: viaduct_renderer,
   popupTemplate: {
-    title: "<p>{PierNumber}</p>",
+    title: "<div style='color: #eaeaea'>{PierNumber}</div>",
     lastEditInfoEnabled: false,
     returnGeometry: true,
     content: [
