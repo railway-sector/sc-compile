@@ -47,6 +47,7 @@ import {
   structureOwnershipStatusLabel,
   structureStatusColorRgb,
   structureStatusField,
+  tunnelAffectLotField,
   valueLabelColor,
 } from "./StatusUniqueValues";
 
@@ -804,6 +805,137 @@ export const handedOverLotLayer = new FeatureLayer({
   },
 });
 handedOverLotLayer.listMode = "hide";
+
+const tunnelAffectedLotRenderer = new UniqueValueRenderer({
+  field: tunnelAffectLotField,
+  uniqueValueInfos: [
+    {
+      value: 1,
+      label: "Tunnel Affected",
+      symbol: new SimpleFillSymbol({
+        color: [255, 0, 0, 0],
+        outline: {
+          color: "#00c5ff",
+          width: 0.3,
+        },
+      }),
+    },
+  ],
+});
+
+export const tunnelAffectedLotLayer = new FeatureLayer({
+  portalItem: {
+    id: "99500faf0251426ea1df934a739faa6f",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 1,
+  definitionExpression: `${tunnelAffectLotField} = 1`,
+  renderer: tunnelAffectedLotRenderer,
+  popupEnabled: false,
+  labelsVisible: false,
+  title: "Tunnel Affected",
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* contractor accessible layer */
+const accessible_renderer = new SimpleRenderer({
+  symbol: new SimpleFillSymbol({
+    color: "purple",
+    // style: 'cross',
+    style: "solid",
+
+    outline: {
+      width: 1,
+      color: "black",
+    },
+  }),
+});
+export const accessibleLotAreaLayer = new FeatureLayer({
+  portalItem: {
+    id: "4692e76be5804db2b38c23df86c7eaa8",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+
+  renderer: accessible_renderer,
+  title: "Handed-Over Area",
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Optmized lots for NSCR-Ex Passenger Line */
+const optimizedLotRenderer = new SimpleRenderer({
+  symbol: new SimpleFillSymbol({
+    color: "#808080",
+    style: "diagonal-cross",
+    outline: {
+      // autocasts as new SimpleLineSymbol()
+      color: "#bbbbbb",
+      width: "6px",
+    },
+  }),
+});
+
+export const optimizedLots_passengerLineLayer = new FeatureLayer({
+  portalItem: {
+    id: "99500faf0251426ea1df934a739faa6f",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 1,
+  definitionExpression: "OptLotsIIA = 1",
+  labelingInfo: [lotIdLabel],
+  renderer: optimizedLotRenderer,
+  popupTemplate: templateLot,
+  title: "Optimized Lots for NSCR-Ex Passenger & Freight Line",
+  minScale: 150000,
+  maxScale: 0,
+  //labelsVisible: false,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
+
+/* Studied Lots of NSCR-Ex Freight Line for Optimization */
+const studiedLotRenderer = new SimpleRenderer({
+  symbol: new SimpleFillSymbol({
+    color: "#808080",
+    style: "horizontal",
+    outline: {
+      // autocasts as new SimpleLineSymbol()
+      color: [110, 110, 110],
+      width: 1,
+    },
+  }),
+});
+
+export const studiedLots_optimizationLayer = new FeatureLayer({
+  portalItem: {
+    id: "99500faf0251426ea1df934a739faa6f",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  layerId: 1,
+  definitionExpression: "OptLotsIIB = 1",
+  labelingInfo: [lotIdLabel],
+  renderer: studiedLotRenderer,
+  popupTemplate: templateLot,
+  title: "Candidate Lots of NSCR-Ex Passenger & Freight Line for Optimization",
+  minScale: 150000,
+  maxScale: 0,
+  //labelsVisible: false,
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
+});
 
 /* Structure Layer */
 const height = 5;
@@ -2535,7 +2667,14 @@ export const lotGroupLayer = new GroupLayer({
   title: "Land",
   visible: true,
   visibilityMode: "independent",
-  layers: [lotLayer, pnrLayer],
+  layers: [
+    lotLayer,
+    optimizedLots_passengerLineLayer,
+    studiedLots_optimizationLayer,
+    tunnelAffectedLotLayer,
+    pnrLayer,
+    accessibleLotAreaLayer,
+  ],
 });
 
 export const treeGroupLayer = new GroupLayer({

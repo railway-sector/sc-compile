@@ -1616,7 +1616,9 @@ export const defineActions = (event: any) => {
   item.title === "Line Status" ||
   item.title === "Pier Head/Column" ||
   item.title === "Viaduct" ||
-  item.title === "Station Structures"
+  item.title === "Station Structures" ||
+  item.title === "Tunnel Affected" ||
+  item.title === "Handed-Over Area"
     ? (item.visible = false)
     : (item.visible = true);
 };

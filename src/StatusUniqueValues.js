@@ -34,6 +34,7 @@ export const lotTargetActualDateField = "TargetActualDate";
 export const lotHandedOverDateField = "HandedOverDate";
 export const lotHandedOverAreaField = "HandedOverArea";
 export const affectedAreaField = "AffectedArea";
+export const tunnelAffectLotField = "TunnelAffected";
 export const lotHandOverDateField = "HandOverDate";
 export const lotStatusLabel = [
   "Paid",
