@@ -1597,6 +1597,7 @@ export const defineActions = (event: any) => {
   }
 
   item.title === "Chainage" ||
+  item.title === "SC Alignment 7.1.6" ||
   item.title === "Temporary Fencing" ||
   item.title === "Permanent Fencing" ||
   item.title === "Maintenance Road" ||

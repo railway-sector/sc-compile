@@ -187,6 +187,27 @@ export const prowLayer = new FeatureLayer({
 
 /* Meralco site 1 additioinal PROW Layer */
 
+/* ROW Layer version 7.1.6 */
+var prowoldRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: "#DF00FF",
+    width: "2px",
+    // style: "long-dash-dot",
+  }),
+});
+
+export const prowLayerold = new FeatureLayer({
+  portalItem: {
+    id: "84ba987eed264fe9b18938000ddf702d",
+    portal: {
+      url: "https://gis.railway-sector.com/portal",
+    },
+  },
+  title: "SC Alignment 7.1.6",
+  popupEnabled: false,
+  renderer: prowoldRenderer,
+});
+
 export const meralco_site1_prowLayer = new FeatureLayer({
   portalItem: {
     id: "87ec32eacf194b91b040ca052574234b",
@@ -2647,6 +2668,7 @@ export const alignmentGroupLayer = new GroupLayer({
     chainageLayer,
     cp_break_lines,
     meralco_site1_prowLayer,
+    prowLayerold,
     prowLayer,
     temporaryFencingLayer,
     permanentFencingLayer,
